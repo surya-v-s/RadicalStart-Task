@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import '../stylesheet/AddEmp.css';
 function AddEmp(){
     const [empInfo,setEmpInfo] = useState([])
     const navigate = useNavigate()
@@ -20,12 +20,12 @@ function AddEmp(){
    }
 
     return(
-        <>
+        <div className="add-container">
             <h1>Add Employee</h1>
             <form onSubmit={handleSubmit}>
                 
-                <label>Name : <input onChange={handleChange} type="text" name = "name" placeholder="Enter Name" required/></label><br/><br/>
-                <label>Employee ID :  <input onChange={handleChange} type="number" name = "emp_id" placeholder="Enter ID" required/></label><br/><br/>
+                <label>Name : <input onChange={handleChange} type="text" name = "name" placeholder="Enter Name" required/></label><br/>
+                <label>Employee ID :  <input onChange={handleChange} type="number" name = "emp_id" placeholder="Enter ID" required/></label><br/>
                 
                 <label>Department : 
                     <select value={empInfo.dept} name="dept" onChange={handleChange} required>
@@ -34,7 +34,7 @@ function AddEmp(){
                         <option value="Development">Development</option>
                         <option value="Testing">Testing</option>
                     </select>
-                </label><br/><br/>
+                </label><br/>
 
                 <label>Designation :  
                     <select value={empInfo.desgn} name="desgn" onChange={handleChange} required>
@@ -45,10 +45,10 @@ function AddEmp(){
                         <option value="Senior Test Engineer">Senior Test Engineer</option>
                         <option value="Junior Test Engineer">Junior Test Engineer</option>
                     </select>
-                </label><br/><br/>
+                </label><br/>
 
                 <label>Project : <input onChange={handleChange} type="text" name = "project" placeholder="Enter Project" required/></label>
-                <br/><br/>
+                <br/>
 
                 <label>Type : 
                     <select value={empInfo.type} name="type" onChange={handleChange} required>
@@ -57,7 +57,7 @@ function AddEmp(){
                         <option value="Home">Home</option>
                         <option value="Hybrid">Hybrid</option>
                     </select>
-                </label><br/><br/>
+                </label><br/>
 
                 <label>Status : 
                     <select value={empInfo.status} name="status" onChange={handleChange} required>
@@ -65,7 +65,7 @@ function AddEmp(){
                         <option value="Permanent">Permanent</option>
                         <option value="Temporary">Temporary</option>
                     </select>
-                </label><br/><br/>
+                </label><br/>
                 {/* <label>Department : <input onChange={ (e) => { setEmpInfo((prev) => { return {...prev,dept:e.target.value} })} } type="text" name = "dept" placeholder="Enter Department"/></label> */}
                 {/* <label>Designation : <input onChange={ (e) => { setEmpInfo((prev) => { return {...prev,desgn:e.target.value} })} } type="text" name = "desgn" placeholder="Enter Designation"/></label><br/><br/> */}
                 
@@ -74,7 +74,7 @@ function AddEmp(){
                 <input type="submit" value="Confirm"/>
            
             </form>
-        </>
+        </div>
     )
 }
 export default AddEmp;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import '../stylesheet/AddEmp.css';
 function EditEmp(){
     const {id} = useParams()
     const [info,setInfo] = useState({})
@@ -31,11 +31,11 @@ function EditEmp(){
     
 
     return(
-        <>
+        <div className="add-container">
             <h1>Edit Employee Details</h1>
             <form onSubmit={handleSubmit}>
-                <label>Name:<input type="text" name="name" value={info.name} onChange={handleChange}/></label><br/><br/>
-                <label>Employee ID :<input name="emp_id" type="text" value={info.emp_id} onChange={handleChange}/></label><br/><br/>
+                <label>Name:<input type="text" name="name" value={info.name} onChange={handleChange}/></label><br/>
+                <label>Employee ID :<input name="emp_id" type="text" value={info.emp_id} onChange={handleChange}/></label><br/>
                 
                 {/* <label>Designation:<input name="desgn" type="text" value={info.desgn} onChange={handleChange}/></label><br/><br/> */}
                  
@@ -48,7 +48,7 @@ function EditEmp(){
                         <option value="Senior Test Engineer">Senior Test Engineer</option>
                         <option value="Junior Test Engineer">Junior Test Engineer</option>
                     </select>
-                </label><br/><br/>
+                </label><br/>
 
                 <label>Department : 
                     <select value={info.dept} name="dept" onChange={handleChange} required>
@@ -57,10 +57,10 @@ function EditEmp(){
                         <option value="Development">Development</option>
                         <option value="Testing">Testing</option>
                     </select>
-                </label><br/><br/>
+                </label><br/>
 
                 {/* <label>Department:<input name="dept" type="text" value={info.dept} onChange={handleChange}/></label><br/><br/> */}
-                <label>Project :<input name="project" type="text" value={info.project} onChange={handleChange}/></label><br/><br/>
+                <label>Project :<input name="project" type="text" value={info.project} onChange={handleChange}/></label><br/>
                 
                 {/* <label>Type :<input name="type" type="text" value={info.type} onChange={handleChange}/></label><br/><br/> */}
                 {/* <label>Status :<input name="status" type="text" value={info.status} onChange={handleChange}/></label><br/><br/> */}
@@ -72,7 +72,7 @@ function EditEmp(){
                         <option value="Home">Home</option>
                         <option value="Hybrid">Hybrid</option>
                     </select>
-                </label><br/><br/>
+                </label><br/>
 
                 <label>Status : 
                     <select value={info.status} name="status" onChange={handleChange} required>
@@ -80,12 +80,12 @@ function EditEmp(){
                         <option value="Permanent">Permanent</option>
                         <option value="Temporary">Temporary</option>
                     </select>
-                </label><br/><br/>
+                </label><br/>
 
                 <input type="submit" value="Update"/>
 
             </form>
-        </>
+        </div>
     )
 }
 export default EditEmp;

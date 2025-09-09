@@ -8,11 +8,11 @@ function DeleteEmp(){
         fetch(`http://localhost:5000/emp/${id}`,{
             method:"delete"
         }).then(res => {if(res.ok) alert("deleted");navigate("/");} ).catch((err)=>console.error(err))
-    },[id])
+    },[id,navigate])
 
     return(
         <>
-        <h1>Delete Employee</h1>
+        {/* <h1>Delete Employee</h1> */}
         </>
     )
 }

@@ -4,6 +4,7 @@ import ViewEmp from "./components/ViewEmp";
 import EditEmp from "./components/EditEmp";
 import AddEmp from "./components/AddEmp";
 import DeleteEmp from "./components/DeleteEmp";
+import './App.css';
 
 function App(){
   const [empList,setempList] = useState([])
@@ -18,12 +19,12 @@ function App(){
           <Routes>
             <Route path='/' element={
               <>
+              <div className="header">
                <h1>Employee</h1>
                <Link to='/add'>
                <button>Add Employee</button>
                </Link>
-               <br/>
-               <br/>
+               </div>
             <table border="1">
             <thead>
               <tr>
