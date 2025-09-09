@@ -19,45 +19,55 @@ function App(){
           <Routes>
             <Route path='/' element={
               <>
+              <div className="leftnav">
+                <h2>RadicalStart</h2>
+                <ul>
+                  <li>Dashboard</li>
+                  <li>Employee</li>
+                  <li>Calendar</li>
+                  <li>Settings</li>
+                </ul>
+              </div>
+              <div className="main-content">
               <div className="header">
                <h1>Employee</h1>
                <Link to='/add'>
                <button>Add Employee</button>
                </Link>
                </div>
-            <table border="1">
-            <thead>
-              <tr>
-                <th>Employee Name</th>
-                <th>Employee id</th>
-                <th>Department</th>
-                <th>Designation</th>
-                <th>Project</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
+              <table border="1">
+              <thead>
+                <tr>
+                  <th>Employee Name</th>
+                  <th>Employee id</th>
+                  <th>Department</th>
+                  <th>Designation</th>
+                  <th>Project</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
               </thead>
               <tbody>
-                {empList.map((emp)=>(
-                  <tr key={emp.id}>
-                    <td>{emp.name}</td>
-                    <td>{emp.emp_id}</td>
-                    <td>{emp.dept}</td>
-                    <td>{emp.desgn}</td>
-                    <td>{emp.project}</td>
-                    <td>{emp.type}</td>
-                    <td>{emp.status}</td>
-                    <td>
-                      <Link to={`/view/${emp.id}`}>View</Link>{" "}
-                      <Link to={`/edit/${emp.id}`}>Edit</Link>{" "}
-                      <Link to={`/delete/${emp.id}`}>Delete</Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            
+                  {empList.map((emp)=>(
+                    <tr key={emp.id}>
+                      <td>{emp.name}</td>
+                      <td>{emp.emp_id}</td>
+                      <td>{emp.dept}</td>
+                      <td>{emp.desgn}</td>
+                      <td>{emp.project}</td>
+                      <td>{emp.type}</td>
+                      <td>{emp.status}</td>
+                      <td>
+                        <Link to={`/view/${emp.id}`}>View</Link>{" "}
+                        <Link to={`/edit/${emp.id}`}>Edit</Link>{" "}
+                        <Link to={`/delete/${emp.id}`}>Delete</Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </>
         }/>
         <Route path="/view/:id" element={<ViewEmp/>}/>
