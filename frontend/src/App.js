@@ -8,12 +8,15 @@ import './App.css';
 
 function App(){
   const [empList,setempList] = useState([])
+  const [search,setSearch] = useState("")
 
   useEffect(()=>{
     fetch("http://localhost:5000/").then(res=> res.json()).then(data=> setempList(data)).catch(err => console.log("error in fetching: ",err))
   },[empList])
 
-
+  //display employee list
+  const displayEmployee = search.trim()==="" ? empList : empList.filter((emp)=>{return(emp.name.toLowerCase().includes(search.toLowerCase()) || emp.emp_id.toString().includes(search) )})
+  
   return( 
           <BrowserRouter>
           <Routes>
@@ -34,6 +37,9 @@ function App(){
                <Link to='/add'>
                <button>Add Employee</button>
                </Link>
+               {/* added search field */}
+               <input type="text" value={search} onChange={(e)=>{setSearch(e.target.value)}} placeholder="Search Employee"/>
+               
                </div>
               <table border="1">
               <thead>
@@ -49,7 +55,7 @@ function App(){
                 </tr>
               </thead>
               <tbody>
-                  {empList.map((emp)=>(
+                  {displayEmployee.map((emp)=>(
                     <tr key={emp.id}>
                       <td>{emp.name}</td>
                       <td>{emp.emp_id}</td>

@@ -59,11 +59,24 @@ h1{
   margin: 0;
 }
 
-.header button {
+.header button{
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* search button */
+.header input{
+  position: absolute;
+  right: 130px;
+  top:50%;
+  border:none;
+  background-color: #e8ede7;
+  transform: translateY(-50%);
+  padding: 8px 15px;
+  width:200px;
+  border-radius: 40px;
 }
 
 button{
